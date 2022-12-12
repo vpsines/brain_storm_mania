@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "900221710374",
+    "project_id": "brain-storm-mania",
+    "storage_bucket": "brain-storm-mania.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900221710374:android:295702c61dbd21d76036e7",
+        "android_client_info": {
+          "package_name": "com.vpsines.brain_storm_mania"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900221710374-28sp59h8jpuccsd2bj1nev01rbhi387t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA99DxWGtwS6ggOr5BnSFkqirr3ajoxPn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900221710374-28sp59h8jpuccsd2bj1nev01rbhi387t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
