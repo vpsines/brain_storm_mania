@@ -10,8 +10,10 @@ class AppCircleButton extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return Material(
-      shape: const CircleBorder(),
+    return const Material(
+      type:MaterialType.transparency,
+      clipBehavior:Clip.hardEdge,
+      shape: CircleBorder(),
       child: InkWell(
         child: Icon(Icons.arrow_back_ios),
       ),
