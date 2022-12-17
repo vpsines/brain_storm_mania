@@ -2,7 +2,6 @@
 import 'package:brain_storm_mania/configs/themes/app_dark_theme.dart';
 import 'package:brain_storm_mania/configs/themes/app_light_theme.dart';
 import 'package:brain_storm_mania/configs/themes/ui_parameters.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const Color onSurfaceTextColor = Colors.white;
@@ -23,5 +22,5 @@ const mainGradientDark = LinearGradient(
       primaryColorDark
     ]);
 
-LinearGradient mainGradient(BuildContext context) =>
-    UIParameters.isDarkMode(context) ? mainGradientDark : mainGradientLight;
+LinearGradient mainGradient() =>
+    UIParameters.isDarkMode() ? mainGradientDark : mainGradientLight;
