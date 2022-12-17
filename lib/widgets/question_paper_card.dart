@@ -1,4 +1,6 @@
 import 'package:brain_storm_mania/configs/themes/app_light_theme.dart';
+import 'package:brain_storm_mania/configs/themes/custom_text_styles.dart';
+import 'package:brain_storm_mania/configs/themes/ui_parameters.dart';
 import 'package:brain_storm_mania/models/question_paper_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -47,10 +49,15 @@ class QuestionPaperCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(questionPaperModel.title),
+                    Text(questionPaperModel.title,
+                    style: cardTitles(context),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 15),
                       child: Text(questionPaperModel.description),
+                    ),
+                    Row(
+                      children: [],
                     )
                   ],
                 ),
