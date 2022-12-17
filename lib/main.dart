@@ -18,8 +18,11 @@ import 'firebase_options.dart';
 //   runApp(GetMaterialApp(home: DataUploaderScreen(),));
 // }
 
-void main(){
+Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   InitialBindings().dependencies();
   runApp(MyApp());
 }
