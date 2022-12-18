@@ -21,7 +21,7 @@ class QuestionPaperController extends GetxController{
   Future<void> getImages() async{
     try{
       QuerySnapshot<Map<String,dynamic>> data = await questionPaperRef.get();
-      final paperList = data.docs.map((e) => QuestionPaperModel.fromSnapshot(e)).toList();
+      final paperList = data.docs.map((paper) => QuestionPaperModel.fromSnapshot(paper)).toList();
       papers.assignAll(paperList);
 
       for(var paper in paperList){

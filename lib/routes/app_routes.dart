@@ -1,4 +1,5 @@
 import 'package:brain_storm_mania/controllers/questions/quesion_paper_controller.dart';
+import 'package:brain_storm_mania/controllers/zoom_drawer_controller.dart';
 import 'package:brain_storm_mania/screens/home/home_screen.dart';
 import 'package:brain_storm_mania/screens/introduction/introduction.dart';
 import 'package:brain_storm_mania/screens/splash/splash_screen.dart';
@@ -14,6 +15,7 @@ class AppRoutes{
     GetPage(name: "/home", page: ()=>const HomeScreen(),
     binding:BindingsBuilder((){
       Get.put(QuestionPaperController());
+      Get.put(CustomZoomDrawerController());
     }))
   ];
 }
