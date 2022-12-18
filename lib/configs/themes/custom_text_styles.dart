@@ -1,4 +1,5 @@
 
+import 'package:brain_storm_mania/configs/themes/app_colors.dart';
 import 'package:brain_storm_mania/configs/themes/ui_parameters.dart';
 import 'package:flutter/material.dart';
 
@@ -7,4 +8,13 @@ TextStyle cardTitles(context) => TextStyle(
     Theme.of(context).primaryColor,
     fontSize: 18,
     fontWeight: FontWeight.bold
+);
+
+const detailText = TextStyle(
+    fontSize: 12,
+);
+const headerText = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: onSurfaceTextColor
 );
