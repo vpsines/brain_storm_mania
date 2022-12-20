@@ -1,4 +1,5 @@
 import 'package:brain_storm_mania/firebase_ref/references.dart';
+import 'package:brain_storm_mania/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -43,29 +44,49 @@ class AuthController extends GetxController {
 
         await _auth.signInWithCredential(_credential);
         await _saveUser(account);
+        navigateToHomePage();
       }
     } on Exception catch (e) {
       rethrow;
     }
   }
 
-  Future<void> _saveUser(GoogleSignInAccount account) async{
+  Future<void> _saveUser(GoogleSignInAccount account) async {
     await userRef.doc(account.email).set({
-      'email':account.email,
-      'name':account.displayName,
-      'avatar':account.photoUrl
+      'email': account.email,
+      'name': account.displayName,
+      'avatar': account.photoUrl
     });
   }
 
-  void showLogInAlertDialog(){
-    Get.dialog(Dialogs.questionStartDialog(onTap: (){
+  void showLogInAlertDialog() {
+    Get.dialog(Dialogs.questionStartDialog(onTap: () {
       Get.back();
-    }),
-    barrierDismissible: false);
+    }), barrierDismissible: false);
   }
 
   // returns true if a user is logged in, else false
-  bool isLoggedIn(){
-    return _auth.currentUser !=null;
+  bool isLoggedIn() {
+    return _auth.currentUser != null;
+  }
+
+  // returns current user
+  User? getCurrentUser() {
+    return _user.value;
+  }
+
+  // method to sign out current user
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+      navigateToHomePage();
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    }
+  }
+
+  // navigate To HomePage Screen
+  void navigateToHomePage() {
+    Get.toNamed(HomeScreen.routeName);
   }
 }
