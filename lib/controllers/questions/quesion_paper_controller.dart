@@ -1,8 +1,11 @@
+import 'package:brain_storm_mania/controllers/auth_controller.dart';
 import 'package:brain_storm_mania/firebase_ref/references.dart';
 import 'package:brain_storm_mania/models/question_paper_model.dart';
 import 'package:brain_storm_mania/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../screens/login/login_screen.dart';
 
 class QuestionPaperController extends GetxController{
 
@@ -32,5 +35,25 @@ class QuestionPaperController extends GetxController{
     }catch(e){
       print(e);
     }
+  }
+
+  // nave to question paper screen
+  void navigateToQuestions({required QuestionPaperModel model, bool tryAgain = false}){
+    AuthController _authController = Get.find<AuthController>();
+    if(_authController.isLoggedIn()){
+      if(tryAgain){
+        Get.back();
+        // Get.named
+      }else{
+        // Get.named
+      }
+    }else{
+      _authController.showLogInAlertDialog();
+    }
+  }
+
+  // navigate to login screen
+  void navigateToLogIn(){
+    Get.toNamed(LogInScreen.routeName);
   }
 }

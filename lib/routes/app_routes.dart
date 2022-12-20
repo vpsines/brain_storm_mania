@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../screens/login/login_screen.dart';
+
 class AppRoutes{
 
   static List<GetPage> routes() => [
@@ -16,6 +18,7 @@ class AppRoutes{
     binding:BindingsBuilder((){
       Get.put(QuestionPaperController());
       Get.put(CustomZoomDrawerController());
-    }))
+    })),
+    GetPage(name: LogInScreen.routeName, page: ()=> const LogInScreen())
   ];
 }
