@@ -4,6 +4,7 @@ import 'package:brain_storm_mania/configs/themes/custom_text_styles.dart';
 import 'package:brain_storm_mania/configs/themes/ui_parameters.dart';
 import 'package:brain_storm_mania/controllers/questions/quesion_paper_controller.dart';
 import 'package:brain_storm_mania/controllers/zoom_drawer_controller.dart';
+import 'package:brain_storm_mania/screens/home/menu_screen.dart';
 import 'package:brain_storm_mania/widgets/app_circle_button.dart';
 import 'package:brain_storm_mania/widgets/content_area.dart';
 import 'package:brain_storm_mania/widgets/question_paper_card.dart';
@@ -25,12 +26,13 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
           return ZoomDrawer(
             controller: _.zoomDrawerController,
             borderRadius: 50.0,
-            showShadow: true,
+            showShadow: false,
+            menuScreenWidth: Get.width,
             angle: 0,
             style: DrawerStyle.defaultStyle,
             menuBackgroundColor: Colors.white.withOpacity(0.5),
-            slideWidth: Get.width * 0.6,
-            menuScreen:Text("Hi There"),
+            slideWidth: MediaQuery.of(context).size.width * 0.6,
+            menuScreen:const MenuScreen(),
             mainScreen: Container(
               decoration: BoxDecoration(
                 gradient: mainGradient(),
@@ -66,7 +68,7 @@ class HomeScreen extends GetView<CustomZoomDrawerController> {
                               ],
                             ),
                           ),
-                          Text(
+                          const Text(
                             "What do you want to learn today?",
                             style: headerText,
                           )

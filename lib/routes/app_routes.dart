@@ -9,16 +9,18 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../screens/login/login_screen.dart';
 
-class AppRoutes{
-
+class AppRoutes {
   static List<GetPage> routes() => [
-    GetPage(name: "/", page:() => const SplashScreen()),
-    GetPage(name: "/introduction", page:() =>const AppIntroductionScreen()),
-    GetPage(name: "/home", page: ()=>const HomeScreen(),
-    binding:BindingsBuilder((){
-      Get.put(QuestionPaperController());
-      Get.put(CustomZoomDrawerController());
-    })),
-    GetPage(name: LogInScreen.routeName, page: ()=> const LogInScreen())
-  ];
+        GetPage(name: "/", page: () => const SplashScreen()),
+        GetPage(
+            name: "/introduction", page: () => const AppIntroductionScreen()),
+        GetPage(
+            name: "/home",
+            page: () => const HomeScreen(),
+            binding: BindingsBuilder(() {
+              Get.put(QuestionPaperController());
+              Get.put(CustomZoomDrawerController());
+            })),
+        GetPage(name: LogInScreen.routeName, page: () => const LogInScreen())
+      ];
 }

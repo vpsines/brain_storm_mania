@@ -1,5 +1,6 @@
 import 'package:brain_storm_mania/firebase_ref/references.dart';
 import 'package:brain_storm_mania/screens/home/home_screen.dart';
+import 'package:brain_storm_mania/screens/login/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -62,6 +63,7 @@ class AuthController extends GetxController {
   void showLogInAlertDialog() {
     Get.dialog(Dialogs.questionStartDialog(onTap: () {
       Get.back();
+      navigateLoginPage();
     }), barrierDismissible: false);
   }
 
@@ -88,5 +90,10 @@ class AuthController extends GetxController {
   // navigate To HomePage Screen
   void navigateToHomePage() {
     Get.toNamed(HomeScreen.routeName);
+  }
+
+  // navigate To Login Screen
+  void navigateLoginPage() {
+    Get.toNamed(LogInScreen.routeName);
   }
 }
