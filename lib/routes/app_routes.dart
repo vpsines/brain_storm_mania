@@ -1,4 +1,5 @@
 import 'package:brain_storm_mania/controllers/questions/quesion_paper_controller.dart';
+import 'package:brain_storm_mania/controllers/questions/question_controller.dart';
 import 'package:brain_storm_mania/controllers/zoom_drawer_controller.dart';
 import 'package:brain_storm_mania/screens/home/home_screen.dart';
 import 'package:brain_storm_mania/screens/introduction/introduction.dart';
@@ -20,6 +21,11 @@ class AppRoutes {
               Get.put(CustomZoomDrawerController());
             })),
         GetPage(name: LogInScreen.routeName, page: () => const LogInScreen()),
-        GetPage(name: QuestionScreen.routeName, page: ()=>const QuestionScreen())
+        GetPage(
+            name: QuestionScreen.routeName,
+            page: () => const QuestionScreen(),
+            binding: BindingsBuilder(() {
+              Get.put(QuestionController());
+            }))
       ];
 }
