@@ -1,3 +1,4 @@
+import 'package:brain_storm_mania/firebase_ref/loading_status.dart';
 import 'package:brain_storm_mania/firebase_ref/references.dart';
 import 'package:brain_storm_mania/models/answers.dart';
 import 'package:brain_storm_mania/models/question_paper_model.dart';
@@ -10,6 +11,9 @@ class QuestionController extends GetxController{
 
   late QuestionPaperModel questionPaperModel;
   late List<Questions> allQuestions = <Questions>[];
+  final loadingStatus = LoadingStatus.loading.obs;
+
+  Rxn<Questions> currentQuestion = Rxn<Questions>();
 
   @override
   void onReady() {
@@ -22,6 +26,7 @@ class QuestionController extends GetxController{
     questionPaperModel = questionPaper;
     try{
 
+      loadingStatus.value = LoadingStatus.loading;
       // get questions for question model
       final QuerySnapshot<Map<String,dynamic>> questionQuery = await questionPaperRef.doc(questionPaper.id).collection("questions").get();
       final questions = questionQuery.docs.map((snapshot) => Questions.fromSnapshot(snapshot)).toList();
@@ -41,6 +46,10 @@ class QuestionController extends GetxController{
 
         if(questionPaper.questions !=null && questionPaper.questions!.isNotEmpty){
           allQuestions.assignAll(questionPaper.questions!);
+          currentQuestion.value = questionPaper.questions![0];
+         // loadingStatus.value = LoadingStatus.completed;
+        }else{
+          loadingStatus.value = LoadingStatus.error;
         }
       }
     }catch(e){

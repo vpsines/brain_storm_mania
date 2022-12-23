@@ -18,3 +18,8 @@ const headerText = TextStyle(
     fontWeight: FontWeight.w700,
     color: onSurfaceTextColor
 );
+
+const questionTextStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w800,
+);
