@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'answers.dart';
 
 class Questions {
@@ -13,13 +15,21 @@ class Questions {
     this.correctAnswer,
   });
 
-  Questions.fromJson(Map<String,dynamic> json)
+  Questions.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         question = json['question'],
         answers = (json['answers'] as List)
             .map((dynamic e) => Answers.fromJson(e as Map<String, dynamic>))
             .toList(),
         correctAnswer = json['correct_answer'];
+
+  Questions.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+      : id = snapshot.id,
+        question = snapshot['question'],
+        answers = (snapshot['answers'] as List)
+            .map((dynamic e) => Answers.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        correctAnswer = snapshot['correct_answer'];
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
