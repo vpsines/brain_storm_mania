@@ -2,6 +2,7 @@ import 'package:brain_storm_mania/controllers/auth_controller.dart';
 import 'package:brain_storm_mania/firebase_ref/references.dart';
 import 'package:brain_storm_mania/models/question_paper_model.dart';
 import 'package:brain_storm_mania/screens/home/home_screen.dart';
+import 'package:brain_storm_mania/screens/question/question_screen.dart';
 import 'package:brain_storm_mania/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -48,7 +49,7 @@ class QuestionPaperController extends GetxController {
         Get.back();
         // Get.named
       } else {
-        // Get.named
+        Get.toNamed(QuestionScreen.routeName,arguments: model);
       }
     } else {
       _authController.showLogInAlertDialog();
