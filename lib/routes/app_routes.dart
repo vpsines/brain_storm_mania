@@ -3,10 +3,13 @@ import 'package:brain_storm_mania/controllers/questions/question_controller.dart
 import 'package:brain_storm_mania/controllers/zoom_drawer_controller.dart';
 import 'package:brain_storm_mania/screens/home/home_screen.dart';
 import 'package:brain_storm_mania/screens/introduction/introduction.dart';
+import 'package:brain_storm_mania/screens/question/answer_check_screen.dart';
 import 'package:brain_storm_mania/screens/question/question_screen.dart';
+import 'package:brain_storm_mania/screens/question/result_screen.dart';
 import 'package:brain_storm_mania/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 import '../screens/login/login_screen.dart';
+import '../screens/question/test_overview_screen.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
@@ -25,7 +28,12 @@ class AppRoutes {
             name: QuestionScreen.routeName,
             page: () => const QuestionScreen(),
             binding: BindingsBuilder(() {
-              Get.put(QuestionController());
-            }))
+              Get.put<QuestionController>(QuestionController());
+            })),
+        GetPage(
+            name: TestOverviewScreen.routeName,
+            page: () => const TestOverviewScreen()),
+        GetPage(name: ResultScreen.routeName, page: () => const ResultScreen()),
+        GetPage(name: AnswerCheckScreen.routeName, page: ()=> const AnswerCheckScreen())
       ];
 }

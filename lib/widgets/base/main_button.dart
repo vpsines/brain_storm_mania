@@ -1,4 +1,5 @@
 import 'package:brain_storm_mania/configs/themes/app_colors.dart';
+import 'package:brain_storm_mania/configs/themes/ui_parameters.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -38,9 +39,11 @@ class MainButton extends StatelessWidget {
                     Center(
                       child: Text(
                         title,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: onSurfaceTextColor),
+                            color: UIParameters.isDarkMode()
+                                ? onSurfaceTextColor
+                                : Theme.of(context).primaryColor),
                       ),
                     ),
               ),
